@@ -1,0 +1,129 @@
+/* [project]/src/app/blog/blog.module.css [app-client] (css) */
+.blog-module__JsT-Oq__blogPage {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(to right, #000, #1a1a1a, #000);
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+.blog-module__JsT-Oq__sidebar {
+  flex: 25%;
+  background-color: #000c;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ffffff1a;
+}
+
+.blog-module__JsT-Oq__sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.blog-module__JsT-Oq__sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-module__JsT-Oq__sidebar li {
+  cursor: pointer;
+  padding: .75rem;
+  margin-bottom: .5rem;
+  border-radius: 6px;
+  transition: background-color .3s;
+  color: #e5e7eb;
+}
+
+.blog-module__JsT-Oq__sidebar li:hover {
+  background-color: #ffffff1a;
+}
+
+.blog-module__JsT-Oq__active {
+  font-weight: bold;
+  background-color: #fff3;
+}
+
+.blog-module__JsT-Oq__blogContent {
+  flex: 70%;
+}
+
+.blog-module__JsT-Oq__blogContent h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.blog-module__JsT-Oq__blogGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.blog-module__JsT-Oq__blogPost {
+  background-color: #000c;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px #000000b3;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.blog-module__JsT-Oq__blogPost:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px #000000e6;
+}
+
+.blog-module__JsT-Oq__blogPost h3 {
+  margin-bottom: .5rem;
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.blog-module__JsT-Oq__date {
+  font-size: .875rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.blog-module__JsT-Oq__blogPost p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #d1d5db;
+}
+
+.blog-module__JsT-Oq__blogImageContainer {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.blog-module__JsT-Oq__authorInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.blog-module__JsT-Oq__authorImage {
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+
+.blog-module__JsT-Oq__readMoreLink {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.blog-module__JsT-Oq__readMoreLink:hover {
+  color: #60a5fa;
+}
+
+
+/*# sourceMappingURL=src_app_blog_blog_module_8aa261.css.map*/
