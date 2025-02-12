@@ -77,3 +77,16 @@ export async function getBlogBySlug(slug: string) {
   const blog = await client.fetch(query, { slug });
   return blog;
 }
+
+export async function getallprojects() {
+  const projects = await client.fetch(`*[_type == "project"]{
+  _id,
+  title,
+  description,
+  "slug": slug.current,
+  "imageUrl": image.asset->url,
+  image{alt},
+  link
+}`);
+  return projects;
+}     

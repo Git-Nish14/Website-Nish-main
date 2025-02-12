@@ -1,4 +1,4 @@
-export default {
+export default  {
     name: "project",
     title: "Project",
     type: "document",

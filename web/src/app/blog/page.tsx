@@ -1,6 +1,6 @@
 import React from "react";
 import { getBlogs, getCategories } from "../../lib/sanity_query";
-import BlogList from "./BlogList";
+import BlogList from "../../components/BlogList";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 

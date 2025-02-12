@@ -9,7 +9,8 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 __turbopack_esm__({
     "getBlogBySlug": (()=>getBlogBySlug),
     "getBlogs": (()=>getBlogs),
-    "getCategories": (()=>getCategories)
+    "getCategories": (()=>getCategories),
+    "getallprojects": (()=>getallprojects)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$sanity$2f$client$2f$dist$2f$index$2e$browser$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_import__("[project]/node_modules/@sanity/client/dist/index.browser.js [app-rsc] (ecmascript) <locals>");
 ;
@@ -87,6 +88,18 @@ async function getBlogBySlug(slug) {
         slug
     });
     return blog;
+}
+async function getallprojects() {
+    const projects = await client.fetch(`*[_type == "project"]{
+  _id,
+  title,
+  description,
+  "slug": slug.current,
+  "imageUrl": image.asset->url,
+  image{alt},
+  link
+}`);
+    return projects;
 }
 }}),
 "[project]/src/components/Navbar.tsx (client proxy) <module evaluation>": ((__turbopack_context__) => {
