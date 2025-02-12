@@ -1,0 +1,30 @@
+ 
+# Node.js dependencies
+node_modules/
+
+# Next.js build and output directories
+.next/
+out/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# macOS system files
+.DS_Store
+
+# Editor and IDE settings
+.vscode/
+
+# Logs and debugging files
+*.log
+
+# Package managers lock files
+yarn.lock
+package-lock.json
+
+# Test coverage reports
+coverage/
