@@ -6,6 +6,12 @@ node_modules/
 .next/
 out/
 dist/
+build/
+chunks/
+cache/
+server/
+static/
+types/
 
 # Environment variables
 .env
