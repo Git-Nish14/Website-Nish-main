@@ -1,49 +1,13 @@
-"use client"; // ✅ This must be a Client Component
-
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import ParticlesBackground from "@/components/Blog/ParticlesBackground";
 
 export default function ProjectList({ projects }: { projects: any[] }) {
-  const particlesInit = async (main: any) => {
-    await loadSlim(main);
-  };
-
   return (
     <div className="relative p-12 rounded-lg shadow-2xl max-w-6xl flex flex-col items-center gap-12 bg-gray-800 bg-opacity-90 text-white z-10 backdrop-blur-lg">
       {/* Particles Effect */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: { enable: false },
-          background: { color: "transparent" },
-          particles: {
-            number: { value: 100, density: { enable: true, area: 800 } },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.6, random: true },
-            size: { value: 3, random: true },
-            move: {
-              enable: true,
-              speed: 0.6,
-              direction: "none",
-              random: true,
-              straight: false,
-              outModes: { default: "out" },
-            },
-            links: {
-              enable: true,
-              distance: 120,
-              color: "#ffffff",
-              opacity: 0.5,
-              width: 1,
-            },
-          },
-        }}
-        className="absolute inset-0 pointer-events-none"
-      />
+      <ParticlesBackground />
 
       <h1 className="text-5xl font-extrabold mb-6 text-blue-400">
         My Projects

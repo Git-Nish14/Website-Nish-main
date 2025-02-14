@@ -1,3 +1,4 @@
+"use client";
 import { useState, useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";

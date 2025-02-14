@@ -34,3 +34,6 @@ package-lock.json
 
 # Test coverage reports
 coverage/
+/web
+*.map
+/web

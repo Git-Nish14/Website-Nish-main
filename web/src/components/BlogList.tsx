@@ -1,10 +1,9 @@
 "use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
+import ParticlesBackground from "./Blog/ParticlesBackground"; // Importing the separate particles component
 
 interface Blog {
   _id: string;
@@ -42,36 +41,8 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, categories }) => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-center px-4 overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black">
-      <Particles
-        id="tsparticles"
-        options={{
-          fullScreen: { enable: false },
-          background: { color: "transparent" },
-          particles: {
-            number: { value: 80, density: { enable: true, area: 800 } },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5, random: true },
-            size: { value: 3, random: true },
-            move: {
-              enable: true,
-              speed: 0.5,
-              direction: "none",
-              random: true,
-              straight: false,
-              outModes: { default: "out" },
-            },
-            links: {
-              enable: true,
-              distance: 120,
-              color: "#ffffff",
-              opacity: 0.5,
-              width: 1,
-            },
-          },
-        }}
-        className="absolute inset-0 pointer-events-none"
-      />
+      {/* Particles Background */}
+      <ParticlesBackground />
 
       {/* Category Dropdown */}
       <div className="absolute top-1 right-1">
@@ -89,8 +60,9 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, categories }) => {
         </select>
       </div>
 
+      {/* Blog Cards */}
       <div className="mt-12 w-full max-w-6xl">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 top-6 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 top-6">
           {filteredBlogs.length > 0 ? (
             filteredBlogs.map((blog) => (
               <motion.div

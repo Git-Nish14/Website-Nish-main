@@ -9,7 +9,7 @@
     "static/chunks/node_modules_tsparticles-engine_esm_94d3ff._.js",
     "static/chunks/node_modules_framer-motion_dist_es_3e6def._.js",
     "static/chunks/node_modules_2c387d._.js",
-    "static/chunks/src_3fe105._.js"
+    "static/chunks/src_7bfe6c._.js"
   ],
   "source": "dynamic"
 });
