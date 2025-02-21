@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -29,15 +29,32 @@ interface BlogListProps {
   categories: Category[];
 }
 
+const POSTS_PER_PAGE = 6; // Number of posts per page
+
 const BlogList: React.FC<BlogListProps> = ({ blogs, categories }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // Reset to first page when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
+  // Filter blogs based on selected category
   const filteredBlogs =
     selectedCategory === "All"
       ? blogs
       : blogs.filter((blog) =>
           blog.categories?.some((cat) => cat.title === selectedCategory)
         );
+
+  // Calculate pagination indices
+  const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const currentBlogs = filteredBlogs.slice(
+    startIndex,
+    startIndex + POSTS_PER_PAGE
+  );
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-center px-4 overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black">
@@ -62,9 +79,9 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, categories }) => {
 
       {/* Blog Cards */}
       <div className="mt-12 w-full max-w-6xl">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 top-6">
-          {filteredBlogs.length > 0 ? (
-            filteredBlogs.map((blog) => (
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentBlogs.length > 0 ? (
+            currentBlogs.map((blog) => (
               <motion.div
                 key={blog._id}
                 className="bg-gray-900 text-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105"
@@ -98,6 +115,29 @@ const BlogList: React.FC<BlogListProps> = ({ blogs, categories }) => {
             </p>
           )}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-8 space-x-4">
+            <button
+              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="px-4 py-2 bg-gray-800 text-white rounded">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50"
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

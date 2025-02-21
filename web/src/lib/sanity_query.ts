@@ -1,14 +1,14 @@
 // lib/query_sanity.ts
-import { createClient } from 'next-sanity';
+import { createClient } from "next-sanity";
 
 const client = createClient({
-  projectId: '69b6l5ot',       // Your Sanity project ID
-  dataset: 'production',       // Your dataset name
-  apiVersion: '2023-01-01',     // Use a specific API version
-  useCdn: false,               // Set to false for fresh data
+  projectId: "69b6l5ot", // Your Sanity project ID
+  dataset: "production", // Your dataset name
+  apiVersion: "2023-01-01", // Use a specific API version
+  useCdn: false, // Set to false for fresh data
 });
 
-export async function getBlogs() {
+export async function getBlogs(currentPage: number, POSTS_PER_PAGE: number) {
   const query = `*[_type == "blog"]{
     _id,
     title,
@@ -89,4 +89,4 @@ export async function getallprojects() {
   link
 }`);
   return projects;
-}     
+}

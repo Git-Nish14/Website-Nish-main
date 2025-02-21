@@ -23,9 +23,7 @@ export default async function BlogDetails({
 
     return (
       <>
-        <Navbar />
         <BlogContent blog={blog} />
-        <Footer />
       </>
     );
   } catch (error) {

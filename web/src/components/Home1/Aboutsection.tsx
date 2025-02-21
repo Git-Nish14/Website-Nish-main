@@ -12,7 +12,7 @@ function Aboutsection() {
         viewport={{ once: false, amount: 0.3 }} // Ensures animation triggers when scrolled into view
         className="px-12 py-16 bg-white text-gray-800"
       >
-        <h2 className="text-4xl font-bold text-center underline">
+        <h2 className="text-4xl font-bold text-center">
           <Link href="/about">About Me</Link>
         </h2>
         <p className="text-xl mt-4 max-w-3xl mx-auto text-center">
